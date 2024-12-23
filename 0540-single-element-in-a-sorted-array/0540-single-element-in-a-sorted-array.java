@@ -1,5 +1,11 @@
 class Solution {
     public int singleNonDuplicate(int[] arr) {
+        if(arr.length == 0){
+            return -1;
+        }
+        if(arr.length == 1){
+            return arr[0];
+        }
         int low = 0,high = arr.length-1;
         while(low<=high){
             int mid = (low + high) / 2;
