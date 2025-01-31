@@ -1,12 +1,13 @@
 class Solution {
     public int maxFrequency(int[] nums, int k) {
+        System.out.println(nums.length);
         int res = 1;
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
             int low = i, high = i;
             long sum = nums[i];
             while(low<=high){
-                if(nums[high] * (high-low+1) <= k + sum){
+                if((long)nums[high] * (high-low+1) <= (long)(k + sum)){
                     res = Math.max(res,high-low+1);
                     high++;
                     if(high==nums.length){
