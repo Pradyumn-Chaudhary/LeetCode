@@ -2,8 +2,8 @@ import java.util.*;
 
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        if (s.length() != t.length())
-            return false;
+        // if (s.length() != t.length())
+        //     return false;
         
         HashMap<Character, Character> mapST = new HashMap<>();
         HashMap<Character, Character> mapTS = new HashMap<>();
