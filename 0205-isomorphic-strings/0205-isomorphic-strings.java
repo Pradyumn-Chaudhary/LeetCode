@@ -1,13 +1,27 @@
+import java.util.*;
+
 class Solution {
     public boolean isIsomorphic(String s, String t) {
         if (s.length() != t.length())
             return false;
-        int n = s.length();
-        HashMap<Character, Character> map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            if (map.containsKey(s.charAt(i)) && map.get(s.charAt(i)) != t.charAt(i) && !map.containsValue(t.charAt(i)))
+        
+        HashMap<Character, Character> mapST = new HashMap<>();
+        HashMap<Character, Character> mapTS = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch1 = s.charAt(i);
+            char ch2 = t.charAt(i);
+
+            // Checking s -> t mapping
+            if (mapST.containsKey(ch1) && mapST.get(ch1) != ch2)
                 return false;
-            map.put(s.charAt(i), t.charAt(i));
+
+            // Checking t -> s mapping
+            if (mapTS.containsKey(ch2) && mapTS.get(ch2) != ch1)
+                return false;
+
+            mapST.put(ch1, ch2);
+            mapTS.put(ch2, ch1);
         }
         return true;
     }
