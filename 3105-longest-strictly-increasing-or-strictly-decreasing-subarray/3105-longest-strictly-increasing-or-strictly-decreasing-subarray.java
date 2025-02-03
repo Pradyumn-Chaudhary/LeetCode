@@ -6,6 +6,8 @@ class Solution {
         int md = 1, mi = 1;
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1]) {
+                md = Math.max(md, de);
+                mi = Math.max(mi, in);
                 de = 1;
                 in = 1;
             } else if (nums[i] > nums[i - 1]) {
@@ -20,6 +22,6 @@ class Solution {
         }
         md = Math.max(md, de);
         mi = Math.max(mi, in);
-        return Math.max(mi,md);
+        return Math.max(mi, md);
     }
 }
